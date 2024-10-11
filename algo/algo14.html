@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>sortowanie przez scalanie</i></h1>
+        <div class="content">
+            <p>opis alogo01</p>
+            <pre class="codeblock">
+vector&lt;int&gt; merger(vector&lt;int&gt; v,int poc,int s,int kon){
+    vector&lt;int&gt; pom(kon+1);
+    int i=poc,j=s,k=poc;
+    while(i&lt;s and j&lt;=kon){
+        if(v[i]&gt;v[j]){
+            pom[k]=v[j];
+            j++;
+        }
+        else{
+            pom[k]=v[i];
+            i++;
+        }
+        k++;
+    }
+    while(i&lt;s){
+        pom[k]=v[i];
+        k++;
+        i++;
+    }
+    while(j&lt;=kon){
+        pom[k]=v[j];
+        k++;
+        j++;
+    }
+    for(int ii=poc;ii&lt;=kon;ii++){
+        v[ii]=pom[ii];
+    }
+    return v;
+}
+            </pre>
+            <pre class="codeblock">
+vector&lt;int&gt; mergesort(vector&lt;int&gt; v,int poc,int kon){
+    if(kon-poc&lt;1) return v;
+    if(kon-poc==1){
+        if(v[poc]&gt;v[kon]) swap(v[poc],v[kon]);
+        return v;
+    }
+    v=mergesort(v,poc,(poc+kon)/2);
+    v=mergesort(v,(poc+kon)/2+1,kon);
+    v=merger(v,poc,(poc+kon)/2+1,kon);
+    return v;
+}
+            </pre>
+        </div>
+        
+  </body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>systemy liczbowe pozycyjne</i></h1>
+        <div class="content">
+            <p>opis alogo01</p>
+            <pre class="codeblock">
+string from_dec(int n,int podst){
+    string wyn="";
+    char z;
+    int c;
+    while(n){
+        c=n%podst;
+        if(c&gt;35) z=c+'a'-36;
+        else if(c&gt;9) z=c+'A'-10;
+        else z=c+'0';
+        wyn=z+wyn;
+        n/=podst;
+    }
+    return wyn;
+}
+            </pre>
+            <pre class="codeblock">
+int to_dec(string s,int podst){
+    int wyn=0,curr=1,c;
+    for(int i=s.size()-1;i&gt;=0;i--){
+        c=(int)s[i];
+        if(c&gt;='a') c=c-'a'+36;
+        else if(c&gt;='A') c=c-'A'+10;
+        else c-='0';
+        wyn+=c*curr;
+        curr*=podst;
+    }
+    return wyn;
+}
+            </pre>
+        </div>
+        
+  </body>

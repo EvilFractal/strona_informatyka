@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>szybkie potęgowanie</i></h1>
+        <div class="content">
+            <p>opis alogo01</p>
+            <pre class="codeblock">
+int poteguj(int n,int pot){
+    long long wyn=1;
+    while(pot){
+        if(pot%2){
+            wyn*=n;
+        }
+        pot/=2;
+        n*=n;
+    }
+    return wyn;
+}
+            </pre>
+        </div>
+        
+  </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly">
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>sprawdzanie pierwszości</i></h1>
+        <div class="content">
+            <p>Sprawdzić, czy liczba naturalna <i>n</i> jest pierwsza oznacza sprawdzić, 
+                czy dzieli się ona przez jakąkolwiek inną liczbę naturalną poza 1 i nią samą. 
+                Każda liczba złożona posiada co najmniej jeden dzielnik nierówny 
+                1 i jednocześnie nie większy niż jej pierwiastek kwadratowy, 
+                zatem aby stwierdzić pierwszość liczby <i>n</i> wystarczy sprawdzić, 
+                czy podzielna jest ona przez jakąkolwiek liczbę z tego przedziału. <br>
+                Funkcja <i>pierwsza(n)</i> na początku sprawdza parzystość liczby <i>n</i>, 
+                ponieważ pozwala to później ograniczyć sprawdzanie podzielności tylko do liczb nieparzystych.
+            </p>
+            <pre class="codeblock">
+bool pierwsza(int n){
+    if(n%2==0 and n!=2){
+        return 0;
+    }
+    for(int i=3;i*i&lt;=n;i+=2){
+        if(n%i==0){
+            return 0;
+        }
+    }
+    return 1;
+}
+            </pre>
+            <p>
+                Dla wielu przypadków (konieczności szybkiego sprawdzenia pierwszości wielu liczb <i>n</i>) 
+                metoda ta jest jednak czasochłonna - w takich przypadkach do sprawdzania pierwszości 
+                używa się <a href="algo03.html">sita Eratostenesa</a>.
+            </p>
+        </div>
+        
+  </body>

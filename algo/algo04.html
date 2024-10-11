@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly">
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>algorytm Euklidesa</i></h1>
+        <div class="content">
+            <p>Algorytm Euklidesa służy do szybkiego znajdowania największego wspólnego dzielnika 
+                dwóch liczb całkowitych. Funkcja <i>nwd(a,b)</i> korzysta w tym celu z operacji 
+                modulo, dopóki jedna z liczb się nie wyzeruje - z drugiej można wtedy odczytać 
+                ich największy wspólny dzielnik.
+            </p>
+            <pre class="codeblock">
+int nwd(int a,int b){
+    int t;
+    while(b){
+        t=a%b;
+        a=b;
+        b=t;
+    }
+    return a;
+}
+            </pre>
+        </div>
+        
+  </body>

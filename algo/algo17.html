@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>zliczanie wystąpień znaku w tekście</i></h1>
+        <div class="content">
+            <p>
+Aby uzyskać liczbę wystąpien danego znaku w tekście, należy dla każdego kolejnego znaku sprawdzić, czy równy jest szukanemu.</p>
+            <pre class="codeblock">
+int iletakich(string s,char z){
+    int wyn=0;
+    for(int i=0;i&lt;s.size();i++){
+        if(s[i]==z) wyn++;
+    }
+    return wyn;
+}
+            </pre>
+        </div>
+        
+  </body>

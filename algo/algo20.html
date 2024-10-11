@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>palindrom</i></h1>
+        <div class="content">
+            <p>Palindrom to ciąg znaków, w ktorym <i>i</i>-ty znak od początku identyczny jest z i-tym znakiem od końca.
+            </p>
+            <pre class="codeblock">
+bool palindrom(string s){
+    for(int i=0;i&lt;s.size()/2;i++){
+        if(s[i]!=s[s.size()-1-i]){
+            return 0;
+        }
+    }
+    return 1;
+}
+            </pre>
+        </div>
+        
+  </body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly">
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>faktoryzacja</i></h1>
+        <div class="content">
+            <p>Aby uzyskać listę wszystkich czynników pierwszych liczby naturalnej <i>n</i>, 
+                należy dla każdej liczby pierwszej mniejszej od <i>n</i> sprawdzić, 
+                czy liczba <i>n</i> jest przez nią podzielna - jeśli jest, 
+                należy dzielić liczbę <i>n</i> przez ten czynnik dopóty, 
+                dopóki liczba <i>n</i> będzie przez niego podzielna, 
+                odnotowując jednocześnie każde tego czynnika wystąpienie. <br>
+                Funkcja <i> fact(n)</i> rozkłada liczbę <i>n</i> na czynniki pierwsze. 
+                Z racji tego, że parzysta jest aż co druga liczba naturalna, 
+                wyeliminowanie wszystkich czynników postaci 2 odbywa się w osobnej pętli, 
+                po czym następna rozpatruje już tylko liczby nieparzyste. <br>
+                Na koniec funkcja <i>fact(n)</i> wypisuje - jeżeli takowy pozostał, 
+                a więc jest on większy od pierwiastka z <i>n</i> - ostatni czynnik. 
+            </p>
+            <pre class="codeblock">
+void fact(int n){ 
+    int i=2;
+    while(n%i==0){
+        cout&lt;&lt;i;
+        n/=i;
+        if(n!=1){
+            cout&lt;&lt;'*';
+        }
+    }
+    i=3;
+    while(i*i&lt;=n){
+        if(n%i==0){
+            cout&lt;&lt;i;
+            n/=i;
+            if(n!=1){
+                cout&lt;&lt;'*';
+            }
+        }
+        else{
+            i+=2;
+        }
+    }
+    if(n!=1) cout&lt;&lt;n;
+}
+            </pre>
+            <p>
+                Warto zauważyć, że powyższa funkcja nie sprawdza pierwszości kolejnych wartości <i>i</i>. 
+                Nie jest to potrzebne, ponieważ pętla przechodząca przez kolejne nieparzyste liczby
+                naturalne (jedyną parzystą liczbą pierwszą jest 2) 
+                gwarantuje wcześniejsze wyeliminowanie czynników niebędącego liczbą pierwszą <i>i</i>, 
+                dzięki czemu nowe <i>n</i> - nieposiadające już tych czynników 
+                - na pewno nie będzie przez liczbę złożoną <i>i</i> podzielne.
+            </p>
+        </div>
+        
+  </body>

@@ -1,0 +1,32 @@
+>>>>>>>>>>faktoryzacja
+Faktoryzacja polega na rozkładzie liczby naturalnej na czynniki pierwsze.
+Aby uzyskać listę wszystkich czynników pierwszych liczby naturalnej <i>n</i>, należy dla każdej liczby pierwszej mniejszej od <i>n</i> sprawdzić, czy liczba <i>n</i> jest przez nią podzielna - jeśli jest, należy dzielić liczbę <i>n</i> przez ten czynnik dopóty, dopóki liczba <i>n</i> będzie przez niego podzielna, odnotowując jednocześnie każde tego czynnika wystąpienie.
+Funkcja <i>fact(n)</i> rozkłada liczbę <i>n</i> na czynniki pierwsze. Z racji tego, że parzysta jest aż co druga liczba naturalna, wyeliminowanie wszystkich czynników postaci 2 odbywa się w osobnej pętli, po czym następna rozpatruje już tylko liczby nieparzyste.
+Warto zauważyć, że powyższa funkcja nie sprawdza pierwszości kolejnych wartości <i>i</i>. Nie jest to potrzebne, ponieważ pętla przechodząca przez kolejne nieparzyste liczby naturalne (jedyną parzystą liczbą pierwszą jest 2) gwarantuje wcześniejsze wyeliminowanie czynników niebędącego liczbą pierwszą <i>i</i>, dzięki czemu nowe <i>n</i> - nieposiadające już tych czynników - na pewno nie będzie przez liczbę złożoną <i>i</i> podzielne.
+
+>>>>>>>sprawdzanie pierwszości
+Sprawdzić, czy liczba naturalna <i>n</i> jest pierwsza oznacza sprawdzić, czy dzieli się ona przez jakąkolwiek inną liczbę naturalną poza <i>1</i> i nią samą. Każda liczba złożona posiada co najmniej jeden dzielnik nierówny <i>1</i> i jednocześnie nie większy niż jej pierwiastek kwadratowy, zatem aby stwierdzić pierwszość liczby <i>n</i> wystarczy sprawdzić, czy podzielna jest ona przez jakąkolwiek liczbę z tego przedziału.
+Funkcja <i>pierwsza(n)</i> na początku sprawdza parzystość liczby <i>n</i>, ponieważ pozwala to później ograniczyć sprawdzanie podzielności tylko do liczb nieparzystych.
+Dla wielu przypadków (konieczności szybkiego sprawdzenia pierwszości wielu liczb <i>n</i>) algorytm ten jest jednak czasowo nieoptymalny - w takich przypadkach do sprawdzania pierwszości używa się .
+
+>>>>>>>>>>sito Eratostenesa
+Sito Eratostenesa pozwala szybko określić pierwszość każdej z liczb w przedziale &lt;1, <i>kon</i>&gt;. Aby to osiągnąć, należy utworzyć listę przechowującą informację o pierwszości liczb z tego przedziału, a następnie, idąc od liczb najmniejszych, dla każdej znalezionej liczby pierwszej odznaczyć wszystkie jej wielokrotności (funkcja <i>sito(kon)</i> przypisuje liczbom pierwszym wartość 0, a innym 1).
+Istotnym usprawnieniem jest wstępne odznaczenie wszystkich liczb parzystych za wyjątkiem 2, co pozwala pominąć w następnej pętli liczby parzyste całkowicie. Na uwagę zasługuje także rozpoczynanie odznaczania wielokrotności od kwadratu rozpatrywanej liczby pierwszej - jest to możliwe, ponieważ wszystkie pomijane w tym obrocie pętli liczby zostały odznaczone w jej wcześniejszych obrotach, kiedy nie były od kwadratu rozpatrywanej wcześniej liczby większe.
+
+>>>>>>>>>>>algorytm Euklidesa
+
+
+systemy liczbowe pozycyjne
+silnia
+szybkie potęgowanie
+wyszukiwanie binarne
+sortowanie bąbelkowe
+sortowanie przez wybieranie
+szybkie sortowanie
+sortowanie przez scalanie
+ciąg Fibonacciego
+jednoczesne szukanie wartości maksymalnej i minimalnej na liście
+zliczanie wystąpień znaku w tekście
+szyfry przestawieniowe
+anagramy
+palindrom

@@ -1,0 +1,28 @@
+body{ 
+    display: block;
+    font-family: 'Times New Roman';
+    background-color: rgb(156, 182, 103)
+}
+
+.codeblock{
+    font-family: Courier ;
+    border-left-color: rgb(69, 57, 36);
+    border-left-width: 5px;
+    font-size: small;
+}
+
+.listed{
+    margin-top: 6px;
+}
+
+.content{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tiitle{
+    text-align: center;
+    margin-top: -32px;
+    margin-left: 30px;
+    margin-right: 30px;
+}

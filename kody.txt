@@ -1,0 +1,291 @@
+void fact(int n){ 
+    int i=2;
+    while(n%i==0){
+        cout&lt;&lt;i;
+        n/=i;
+        if(n!=1){
+            cout&lt;&lt;'*';
+        }
+    }
+    while(i*i&lt;=n){
+        if(n%i==0){
+            cout&lt;&lt;i;
+            n/=i;
+            if(n!=1){
+                cout&lt;&lt;'*';
+            }
+        }
+        else{
+            i+=2;
+        }
+    }
+    cout&lt;&lt;'\n';
+}
+
+bool pierwsza(int n){
+    if(n%2==0 and n!=2){
+        return 0;
+    }
+    for(int i=3;i*i&lt;=n;i+=2){
+        if(n%i==0){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+vector&lt;bool&gt; sito(int kon){
+    vector&lt;bool&gt; sito(kon+1);
+    sito[0]=1;
+    sito[1]=1;
+    for(int i=4;i&lt;=kon;i+=2){
+        sito[i]=1;
+    }
+    for(int i=3;i&lt;kon;i++){
+        if(!sito[i]){
+            for(int j=i*i;j&lt;=kon;j+=2*i){
+                sito[j]=1;
+            }
+        }
+    }
+    return sito;
+}
+
+int nwd(int a,int b){
+    int t;
+    while(b){
+        t=a%b;
+        a=b;
+        b=t;
+    }
+    return a;
+}
+
+string from_dec(int n,int podst){
+    string wyn="";
+    char z;
+    int c;
+    while(n){
+        c=n%podst;
+        if(c&gt;35) z=c+'a'-36;
+        else if(c&gt;9) z=c+'A'-10;
+        else z=c+'0';
+        wyn=z+wyn;
+        n/=podst;
+    }
+    return wyn;
+}
+
+int to_dec(string s,int podst){
+    int wyn=0,curr=1,c;
+    for(int i=s.size()-1;i&gt;=0;i--){
+        c=(int)s[i];
+        if(c&gt;='a') c=c-'a'+36;
+        else if(c&gt;='A') c=c-'A'+10;
+        else c-='0';
+        wyn+=c*curr;
+        curr*=podst;
+    }
+    return wyn;
+}
+
+int silnia(int n){
+    int wyn=1;
+    for(int i=2;i&lt;=n;i++){
+        wyn*=i;
+    }
+    return wyn;
+}
+
+int poteguj(int n,int pot){
+    long long wyn=1;
+    while(pot){
+        if(pot%2){
+            wyn*=n;
+        }
+        pot/=2;
+        n*=n;
+    }
+    return wyn;
+}
+
+int binary_search(vector&lt;int&gt; v, int n){
+    int poc=0,s,kon=v.size();
+    while(poc&lt;kon){
+        s=(poc+kon+1)/2;
+        if(v[s]&lt;=n){
+            poc=s;
+        }
+        else{
+            kon=s-1;
+        }
+    }
+    return kon;
+}
+
+vector&lt;int&gt; babelkowe(vector&lt;int&gt; v){
+    for(int i=0;i&lt;v.size()-1;i++){
+        for(int j=i+1;j&lt;v.size();j++){
+            if(v[j]&lt;v[i]) swap(v[i],v[j]);
+        }
+    }
+    return v;
+}
+
+vector&lt;int&gt; wyb(vector&lt;int&gt; v){
+    int m,kon=v.size();
+    for(int i=0; i&lt;kon; i++) {
+        m=i;
+        for(int j=i+1; j&lt;kon; j++){
+            if(v[j]&lt;v[m]) m=j;
+        }
+        swap(v[m], v[i]);
+    }
+    return v;
+}
+
+vector&lt;int&gt; quicksort(vector&lt;int&gt; v,int poc,int kon){
+    if(kon-poc&lt;2) return v;
+    if(kon-poc==2){
+        if(v[poc]&gt;v[poc+1]) swap(v[poc],v[poc+1]);
+        return v;
+    }
+    int piv=v[kon-1],gran=poc;
+    for(int i=poc;i&lt;kon;i++){
+        if(v[i]&lt;=piv){
+            swap(v[i],v[gran]);
+            gran++;
+        }
+    }
+    if(gran-poc&gt;1) v=quicksort(v,poc,gran-1);
+    if(kon-gran&gt;1) v=quicksort(v,gran,kon);
+    return v;
+}
+
+vector&lt;int&gt; merger(vector&lt;int&gt; v,int poc,int s,int kon){
+    vector&lt;int&gt; pom(kon+1);
+    int i=poc,j=s,k=poc;
+    while(i&lt;s and j&lt;=kon){
+        if(v[i]&gt;v[j]){
+            pom[k]=v[j];
+            j++;
+        }
+        else{
+            pom[k]=v[i];
+            i++;
+        }
+        k++;
+    }
+    while(i&lt;s){
+        pom[k]=v[i];
+        k++;
+        i++;
+    }
+    while(j&lt;=kon){
+        pom[k]=v[j];
+        k++;
+        j++;
+    }
+    for(int ii=poc;ii&lt;=kon;ii++){
+        v[ii]=pom[ii];
+    }
+    return v;
+}
+
+vector&lt;int&gt; mergesort(vector&lt;int&gt; v,int poc,int kon){
+    if(kon-poc&lt;1) return v;
+    if(kon-poc==1){
+        if(v[poc]&gt;v[kon]) swap(v[poc],v[kon]);
+        return v;
+    }
+    v=mergesort(v,poc,(poc+kon)/2);
+    v=mergesort(v,(poc+kon)/2+1,kon);
+    v=merger(v,poc,(poc+kon)/2+1,kon);
+    return v;
+}
+
+int fib(int n){
+    int fib1=1,fib2=1,t;
+    for(int i=2;i&lt;n;i++){
+        t=fib2;
+        fib2=fib1+fib2;
+        fib1=t;
+    }
+    return fib2;
+}
+
+vector&lt;int&gt; min_and_max(vector&lt;int&gt; v){
+    int mini=v[0],maxi=v[0];
+    for(int i=1;i&lt;v.size();i++){
+        if(v[i]&lt;mini){
+            mini=v[i];
+        }
+        else if(v[i]&gt;maxi){
+            maxi=v[i];
+        }
+    }
+    return vector&lt;int&gt; {mini,maxi};
+}
+
+int iletakich(string s,char z){
+    int wyn=0;
+    for(int i=0;i&lt;s.size();i++){
+        if(s[i]==z) wyn++;
+    }
+    return wyn;
+}
+
+string szyfr(string s,int move, bool szyfruj){
+    string wyn="";
+    char z;
+    move%=26;
+    if(!szyfruj) move=26-move;
+    for(int i=0;i&lt;s.size();i++){
+        z=s[i]+move;
+        if(s[i]&gt;='A' and s[i]&lt;='Z'){
+            if(z&gt;'Z') z-=26;
+        }
+        else if(s[i]&gt;='a' and s[i]&lt;='z'){
+            if(z&gt;'z') z-=26;
+        }
+        wyn+=z;
+    }
+    return wyn;
+}
+
+bool anagramy(string s,string r){
+    vector&lt;int&gt; znaki (128);
+    if(s.size()!=r.size()) return 0;
+    for(int i=0;i&lt;s.size();i++){
+        znaki[s[i]]++;
+        znaki[r[i]]--;
+    }
+    for(int i=0;i&lt;128;i++){
+        if(znaki[i]) return 0;
+    }
+    return 1;
+}
+
+bool palindrom(string s){
+    for(int i=0;i&lt;s.size()/2;i++){
+        if(s[i]!=s[s.size()-1-i]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int plecak(vector&lt;vector&lt;int&gt;&gt; przedmioty, int poj,int n){
+    vector&lt;vector&lt;int&gt;&gt; tabelka(n+1,vector&lt;int&gt;(poj+1));
+    for(int i=1;i&lt;=n;i++){
+        for(int j=1;j&lt;=n;j++){
+            if(j&gt;=przedmioty[i][0]){
+                tabelka[i][j]=max(tabelka[i-1][j],tabelka[i-1][j-przedmioty[i][0]]+przedmioty[i][1]);
+            }
+            else{
+                tabelka[i][j]=tabelka[i-1][j];
+            }
+        }
+    }
+    return tabelka[n][poj];
+}

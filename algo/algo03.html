@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>sito Eratostenesa</i></h1>
+        <div class="content">
+            <p>Sito Eratostenesa pozwala szybko określić pierwszość każdej z liczb w przedziale 
+                &lt;1, <i>kon</i>&gt;. Aby to osiągnąć, należy utworzyć listę przechowującą 
+                informację o pierwszości liczb z tego przedziału, a następnie, 
+                idąc od liczb najmniejszych, dla każdej znalezionej liczby pierwszej 
+                odznaczyć wszystkie jej wielokrotności (funkcja <i>sito(kon)</i> przypisuje 
+                liczbom pierwszym wartość 0, a innym 1).
+            </p>
+            <pre class="codeblock">
+vector&lt;bool&gt; sito(int kon){
+    vector&lt;bool&gt; sito(kon+1);
+    sito[0]=1;
+    sito[1]=1;
+    for(int i=4;i&lt;=kon;i+=2){
+        sito[i]=1;
+    }
+    for(int i=3;i&lt;kon;i++){
+        if(!sito[i]){
+            for(int j=i*i;j&lt;=kon;j+=2*i){
+                sito[j]=1;
+            }
+        }
+    }
+    return sito;
+}
+            </pre>
+            <p>Istotnym usprawnieniem jest wstępne odznaczenie wszystkich liczb parzystych za wyjątkiem 2, 
+                co pozwala pominąć w następnej pętli liczby parzyste całkowicie. 
+                Na uwagę zasługuje także rozpoczynanie odznaczania wielokrotności od kwadratu 
+                rozpatrywanej liczby pierwszej - jest to możliwe, ponieważ wszystkie pomijane 
+                w tym obrocie pętli liczby zostały odznaczone w jej wcześniejszych obrotach, 
+                kiedy nie były od kwadratu rozpatrywanej wtedy liczby większe.
+            </p>
+        </div>
+        
+  </body>

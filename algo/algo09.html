@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>sortowanie bąbelkowe</i></h1>
+        <div class="content">
+            <p>opis alogo01</p>
+            <pre class="codeblock">
+vector&lt;int&gt; babelkowe(vector&lt;int&gt; v){
+    for(int i=0;i&lt;v.size()-1;i++){
+        for(int j=i+1;j&lt;v.size();j++){
+            if(v[j]&lt;v[i]) swap(v[i],v[j]);
+        }
+    }
+    return v;
+}
+            </pre>
+        </div>
+        
+  </body>

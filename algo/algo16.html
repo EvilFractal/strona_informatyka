@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>jednoczesne szukanie wartości maksymalnej i minimalnej na liście</i></h1>
+        <div class="content">
+            <p>Aby znaleźć wartości minimalną i maksymalną z listy przy tylko 
+                jednym przez nią przejściu należy dla każdego jej elementu sprawdzić, 
+                czy jest on większy niż dotychczasowo znaleziona wartośc maksymalna 
+                lub mniejsza od dotychczas znalezionej wartości minimalnej.
+                </p>
+            <pre class="codeblock">
+vector&lt;int&gt; min_and_max(vector&lt;int&gt; v){
+    int mini=v[0],maxi=v[0];
+    for(int i=1;i&lt;v.size();i++){
+        if(v[i]&lt;mini){
+            mini=v[i];
+        }
+        else if(v[i]&gt;maxi){
+            maxi=v[i];
+        }
+    }
+    return vector&lt;int&gt; {mini,maxi};
+}
+            </pre>
+        </div>
+        
+  </body>

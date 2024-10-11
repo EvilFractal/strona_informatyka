@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>ciąg Fibonacciego</i></h1>
+        <div class="content">
+            <p>Ciąg Fibonacciego to ciąg, którego pierwsza para wyrazów równa jest 1, a każdy kolejny jest sumą dwóch poprzednich.
+            </p>
+            <pre class="codeblock">
+int fib(int n){
+    int fib1=1,fib2=1,t;
+    for(int i=2;i&lt;n;i++){
+        t=fib2;
+        fib2=fib1+fib2;
+        fib1=t;
+    }
+    return fib2;
+}
+            </pre>
+        </div>
+        
+  </body>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>szyfry przestawieniowe</i></h1>
+        <div class="content">
+            <p>opis alogo01</p>
+            <pre class="codeblock">
+string szyfr(string s,int move, bool szyfruj){
+    string wyn="";
+    char z;
+    move%=26;
+    if(!szyfruj) move=26-move;
+    for(int i=0;i&lt;s.size();i++){
+        z=s[i]+move;
+        if(s[i]&gt;='A' and s[i]&lt;='Z'){
+            if(z&gt;'Z') z-=26;
+        }
+        else if(s[i]&gt;='a' and s[i]&lt;='z'){
+            if(z&gt;'z') z-=26;
+        }
+        wyn+=z;
+    }
+    return wyn;
+}
+            </pre>
+        </div>
+        
+  </body>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>anagramy</i></h1>
+        <div class="content">
+            <p>opis alogo01</p>
+            <pre class="codeblock">
+bool anagramy(string s,string r){
+    vector&lt;int&gt; znaki (128);
+    if(s.size()!=r.size()) return 0;
+    for(int i=0;i&lt;s.size();i++){
+        znaki[s[i]]++;
+        znaki[r[i]]--;
+    }
+    for(int i=0;i&lt;128;i++){
+        if(znaki[i]) return 0;
+    }
+    return 1;
+}
+            </pre>
+        </div>
+        
+  </body>

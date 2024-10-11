@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>algo01</title>
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body id="caly" >
+		<a href="../algorithms.html"><img src="../back.png" alt="back" style="width: 20px; height: 20px; margin-top: 5px; margin-left: 5px"></a>
+        <h1 class="tiitle"><i>szybkie sortowanie</i></h1>
+        <div class="content">
+            <p>opis alogo01</p>
+            <pre class="codeblock">
+vector&lt;int&gt; quicksort(vector&lt;int&gt; v,int poc,int kon){
+    if(kon-poc&lt;2) return v;
+    if(kon-poc==2){
+        if(v[poc]&gt;v[poc+1]) swap(v[poc],v[poc+1]);
+        return v;
+    }
+    int piv=v[kon-1],gran=poc;
+    for(int i=poc;i&lt;kon;i++){
+        if(v[i]&lt;=piv){
+            swap(v[i],v[gran]);
+            gran++;
+        }
+    }
+    if(gran-poc&gt;1) v=quicksort(v,poc,gran-1);
+    if(kon-gran&gt;1) v=quicksort(v,gran,kon);
+    return v;
+}
+            </pre>
+        </div>
+        
+  </body>
